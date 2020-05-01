@@ -15,4 +15,4 @@
 ```r
 > hist(movies$imdb_score, 100)
 ``` 
-![](Individual/hist_score.png)
+![](hist_score.png)
