@@ -2,117 +2,31 @@
 
 1. За допомогою download.file() завантажте любий excel файл з порталу http://data.gov.ua та зчитайте його (xls, xlsx – бінарні формати, тому встановить mode = “wb”. Виведіть перші 6 строк отриманого фрейму даних.
 ```r
-> download.file("https://data.gov.ua/dataset/dd257efd-52ad-4588-b9e3-9940264ab6dc/resource/d5e5cd47-e46b-44fc-8b61-92efef05e0d4/download/vikonavcirobitobstegennia_-10-04-2020.xlsx",destfile="file.xlsx",method="libcurl", mode="wb")
+> download.file("https://data.gov.ua/dataset/2db9a1f0-a295-4ced-b7bd-0523cf3f25b6/resource/81037a1c-5f3e-434a-8108-3b1be1cf11fd/download/zvit-0813230.xls",destfile="file.xlsx",method="libcurl", mode="wb")
 > library(readxl)
 > file <- read_excel("file.xlsx")
-> View(file)
 > head(file, n=6)
-                                                                                                   PrefLabel
-1                     Найменування юридичної особи/прізвище, ім’я та по батькові фізичної особи – підприємця
-2                                                                   ПРИВАТНЕ ПІДПРИЄМСТВО "РІВНЕ-ІНЖИНІРИНГ"
-3                                                    ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ "ІНЖКОНСАЛТИНГ"
-4                                             ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ "ВІКТОРІАНСЬКИЙ СТИЛЬ"
-5                                                   ФІЗИЧНА ОСОБА – ПІДПРИЄМЕЦЬ НАЙДЬОНОВА НАТАЛІЯ АНТОНІВНА
-6 ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ "НАУКОВО-ДОСЛІДНИЙ ІНСТИТУТ ПІДЗЕМНОГО І СПЕЦІАЛЬНОГО БУДІВНИЦТВА"
-                                                                                                                                                           Identifier1
-1 Ідентифікаційний код юридичної особи згідно з ЄДРПОУ/ реєстраційний номер облікової картки платника податків фізичної особи - підприємця або серія та номер паспорта
-2                                                                                                                                                             38945395
-3                                                                                                                                                             40846485
-4                                                                                                                                                             40502044
-5                                                                                                                                                           1808303806
-6                                                                                                                                                             31403145
-                                                                            Address
-1 Місцезнаходження юридичної особи або місце проживання фізичної особи – підприємця
-2                  33028, Рівненська обл., місто Рівне, вулиця 16 липня, будинок 38
-3         65121, Одеська обл., місто Одеса, проспект Академіка Глушка, будинок 36/3
-4                      65012, Одеська обл., місто Одеса, вулиця Канатна, будинок 81
-5           74900, Херсонська обл., місто Нова Каховка, вулиця Радгоспна, будинок 2
-6                              03680, місто Київ, вулиця Петра Нестерова, будинок 3
-                    ContactPointHasTelephone    ContactPointHasEmail
-1 Номер телефону, за наявності - номер факсу       Електронна адреса
-2                            (067) 608-53-05    ivandidula@gmail.com
-3                            (097) 499-08-28   ukrcentr.od@gmail.com
-4                            (048) 788-82-22 vstyle.proekt@gmail.com
-5                            (066) 397-51-82            n_49@ukr.net
-6         (044) 333-50-25\r\n(044) 333-50-20    info@undergeo.com.ua
-         Homepage                                           ExpertsInvolved
-1        Веб-сайт Прізвище, ім’я та по-батькові сертифікованого спеціаліста
-2    didula.rv.ua                                     Дідула Іван Семенович
-3  ukrcentr.od.ua                                   Пащенко Василь Іванович
-4   v-style.od.ua                                 Кушнір Олексій Михайлович
-5            null                              Найдьонова Наталія Антонівна
-6 undergeo.com.ua                             Снісаренко Володимир Іванович
-                                                                                      Identifier2
-1 Серія та номер кваліфікаційного сертифіката експерта з технічного обстеження будівель та споруд
-2                                                                                     АЕ № 000831
-3                                                                                     АЕ № 004308
-4                                                                                     АЕ № 004845
-5                                                                                     АЕ № 000577
-6                                                                                     АЕ № 000773
-                LaborRelations
-1 Форма трудових відносин \r\n
-2         основне місце роботи
-3         основне місце роботи
-4       неосновне місце роботи
-5         основне місце роботи
-6         основне місце роботи
-                                                                         ScopeOfWork1
-1 Має право обстежувати об’єкти незначного класу наслідків (відповідальності) \r\nСС1
-2                                                                                 СС1
-3                                                                                 СС1
-4                                                                                 СС1
-5                                                                                 СС1
-6                                                                                 СС1
-                                                                         ScopeOfWork2
-1 Має право обстежувати об’єкти середнього класу наслідків (відповідальності) \r\nСС2
-2                                                                                 СС2
-3                                                                                 СС2
-4                                                                                 СС2
-5                                                                                 СС2
-6                                                                                 СС2
-                                                                       ScopeOfWork3
-1 Має право обстежувати об’єкти значного класу наслідків (відповідальності) \r\nСС3
-2                                                                               СС3
-3                                                                               СС3
-4                                                                               СС3
-5                                                                               СС3
-6                                                                               СС3
-                                                                                 PriorityArea
-1                           пріоритетна сфера об’єктів обстеження\r\n(вказується за бажанням)
-2 Інструментальне обстеження об’єктів різного призначення, в тому числі гідротехнічних споруд
-3 Інструментальне обстеження об’єктів різного призначення, в тому числі гідротехнічних споруд
-4                                                                                        null
-5                                                                                        null
-6                                                                                        null
-                                                DateOfPublication
-1 Дата розміщення \r\nінформації про виконавця робіт з обстеження
-2                                                           43185
-3                                                           43201
-4                                                           43235
-5                                                           43277
-6                                                           43277
-                                                                   DateOfChange
-1 Дата  останнього внесення змін до інформації про виконавця робіт з обстеження
-2                                                                          null
-3                                                                          null
-4                                                                         43342
-5                                                                          null
-6                                                                          null
-                                              DateOfdeletion
-1 Дата видалення інформації про виконавця робіт з обстеження
-2                                                       null
-3                                                       null
-4                                                       null
-5                                                       null
-6                                                       null
+
+# A tibble: 6 x 13
+  ...1                ...2   ...3  ...4  ...5                   ...6  ...7  ...8  ...9  `ЗАТВЕРДЖЕНО\nНаказ Міністерства фінансів~ ...11 ...12 ...13
+  <chr>               <chr>  <chr> <chr> <chr>                  <chr> <chr> <chr> <chr> <chr>                                      <chr> <chr> <chr>
+1 NA                  NA     NA    NA    NA                     NA    NA    NA    NA    NA                                         NA    NA    NA   
+2 NA                  NA     NA    NA    NA                     NA    NA    NA    NA    NA                                         NA    NA    NA   
+3 NA                  NA     NA    NA    NA                     NA    NA    NA    NA    NA                                         NA    NA    NA   
+4 Звіт                NA     NA    NA    NA                     NA    NA    NA    NA    NA                                         NA    NA    NA   
+5 про виконання пасп~ NA     NA    NA    NA                     NA    NA    NA    NA    NA                                         NA    NA    NA   
+6 1.                  08000~ NA    NA    Орган з питань праці ~ NA    NA    NA    NA    NA                                         NA    NA    NA   
 ```
+
+# Думаю, це проблеми з локалізацією моєї ОС. Не став доскачувати пакери з мовами.
+
 ----------------------
 
 2. За допомогою download.file() завантажте файл getdata_data_ss06hid.csv за посиланням https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv та завантажте дані в R. Code book, що пояснює значення змінних знаходиться за ##посиланням https://www.dropbox.com/s/dijv0rlwo4mryv5/PUMSDataDict06.pdf?dl=0. Необхідно знайти, скільки property мають value $1000000+
 ```r
-> download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", destfile="file2.csv", method="curl")
-> data <- read.table("file2.csv", sep=",", header=TRUE)
-> sum(!is.na(data$VAL[data$VAL==24]))
+> download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", destfile="file.csv", method="curl")
+> rowData <- read.table("file.csv", sep=",", header=TRUE)
+> sum(!is.na(rowData$VAL[rowData$VAL==24]))
 [1] 53
 ```
 
@@ -120,8 +34,8 @@
 
 3. Зчитайте xml файл за посиланням http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml. Скільки ресторанів мають zipcode 21231?
 ```r
-> file3 <- xmlTreeParse("http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml", useInternal=TRUE)
-> node <- xmlRoot(file3)
-> sum(xpathSApply(node, "//zipcode", xmlValue)==21231)
+> file <- xmlTreeParse("http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml", useInternal=TRUE)
+> root <- xmlRoot(file)
+> sum(xpathSApply(root, "//zipcode", xmlValue)==21231)
 [1] 127
 ```
